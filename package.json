@@ -1,8 +1,8 @@
 {
   "name": "changesets-changelog-entry",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Get an entry from a Changesets changelog",
-  "bin": "./bin/cli.js",
+  "bin": "./bin/cli.mjs",
   "main": "./lib/index.js",
   "module": "./esm/index.js",
   "typings": "typings/index.d.ts",
