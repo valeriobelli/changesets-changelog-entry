@@ -1,0 +1,54 @@
+// Vitest Snapshot v1
+
+exports[`getChangelogEntry > extracts the entry for the latest changes 1`] = `
+"### Patch Changes
+
+*   [19fe6c1b](https://github.com/keystonejs/keystone-5/commit/19fe6c1b):
+
+    Move frontmatter in docs into comments
+"
+`;
+
+exports[`getChangelogEntry > extracts the entry for the previous changes 1`] = `
+"### Major Changes
+
+*   [2164a779](https://github.com/keystonejs/keystone-5/commit/2164a779):
+
+    *   Replace jade with pug because Jade was renamed to Pug, and \`jade\` package is outdated
+
+### Patch Changes
+
+*   [81dc0be5](https://github.com/keystonejs/keystone-5/commit/81dc0be5):
+
+    *   Update dependencies
+"
+`;
+
+exports[`getChangelogEntry > extracts the entry for the previous changes 2`] = `
+"*   \\\\[patch][b69fb9b7](https://github.com/keystonejs/keystone-5/commit/b69fb9b7):
+
+    *   Update dev devependencies
+
+*   \\\\[major][f97e4ecf](https://github.com/keystonejs/keystone-5/commit/f97e4ecf):
+
+    *   Export { emailSender } as the API, rather than a default export
+"
+`;
+
+exports[`getChangelogEntryFromFile > extracts the entry for the latest changes when the pathname is absolute 1`] = `
+"### Patch Changes
+
+*   [19fe6c1b](https://github.com/keystonejs/keystone-5/commit/19fe6c1b):
+
+    Move frontmatter in docs into comments
+"
+`;
+
+exports[`getChangelogEntryFromFile > extracts the entry for the latest changes when the pathname is relative 1`] = `
+"### Patch Changes
+
+*   [19fe6c1b](https://github.com/keystonejs/keystone-5/commit/19fe6c1b):
+
+    Move frontmatter in docs into comments
+"
+`;

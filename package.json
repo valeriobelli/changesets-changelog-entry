@@ -1,0 +1,84 @@
+{
+  "name": "changesets-changelog-entry",
+  "version": "1.0.0",
+  "description": "Get an entry from a Changesets changelog",
+  "bin": "./bin/cli.js",
+  "main": "./lib/index.js",
+  "module": "./esm/index.js",
+  "typings": "typings/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valeriobelli/changesets-changelog-entry"
+  },
+  "bugs": {
+    "url": "https://github.com/valeriobelli/changesets-changelog-entry/issues"
+  },
+  "author": "Valerio Belli <belli.valerio@outlook.com>",
+  "license": "MIT",
+  "keywords": [
+    "changesets",
+    "changelog",
+    "cli"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "files": [
+    "bin",
+    "dist",
+    "esm/",
+    "lib/",
+    "CHANGELOG.md"
+  ],
+  "exports": {
+    "import": "./esm/index.mjs",
+    "require": "./lib/index.js"
+  },
+  "scripts": {
+    "build": "yarn clean && yarn build:bundle && yarn build:typings",
+    "build:bundle": "rollup -c rollup.config.js",
+    "build:typings": "tsc --project tsconfig.code.json --emitDeclarationOnly",
+    "clean": "rimraf .tsbuildinfo esm lib typings dist",
+    "lint": "eslint --ext js,ts src",
+    "postinstall": "husky install",
+    "postpack": "pinst --enable",
+    "prepack": "pinst --disable",
+    "test": "vitest",
+    "typecheck": "tsc --project tsconfig.code.json --noEmit"
+  },
+  "dependencies": {
+    "commander": "^9.4.0",
+    "mdast-util-to-string": "^3.1.0",
+    "pinst": "^3.0.0",
+    "remark-parse": "^10.0.1",
+    "remark-stringify": "^10.0.2",
+    "unified": "^10.1.2"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.24.3",
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "@commitlint/types": "^17.0.0",
+    "@rollup/plugin-alias": "^3.1.9",
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@swc/core": "^1.2.242",
+    "@types/node": "^14",
+    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.6",
+    "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.78.1",
+    "rollup-plugin-swc3": ">=0.3.0 <1.0.0",
+    "typescript": "^4.7.4",
+    "vitest": ">=0.22.1 <1.0.0"
+  },
+  "packageManager": "yarn@3.2.1"
+}
