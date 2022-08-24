@@ -43,8 +43,10 @@
     "postinstall": "husky install",
     "postpack": "pinst --enable",
     "prepack": "pinst --disable",
+    "release": "yarn build && changeset publish",
     "test": "vitest",
-    "typecheck": "tsc --project tsconfig.code.json --noEmit"
+    "typecheck": "tsc --project tsconfig.code.json --noEmit",
+    "version": "changeset version"
   },
   "dependencies": {
     "commander": "^9.4.0",

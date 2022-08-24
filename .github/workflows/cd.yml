@@ -2,36 +2,38 @@ name: CD
 
 on:
   push:
-    tags:
-      - "v*"
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  setup:
+  release:
+    name: Release
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version:
-          - 14
+          - 18.x
 
     steps:
-      - name: Checkout repo
+      - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "yarn"
+          cache: yarn
 
-      - name: Setup
-        run: yarn install
+      - name: Install Dependencies
+        run: yarn
 
-      - name: Build
-        run: yarn build
-
-      - name: Publish
-        run: |
-          yarn config set npmAuthToken $NPM_TOKEN
-          yarn npm publish
+      - name: Create Release Pull Request or Publish to npm
+        uses: changesets/action@v1
+        with:
+          publish: yarn run release
+          version: yarn run version
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
