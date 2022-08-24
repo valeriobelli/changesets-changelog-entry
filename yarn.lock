@@ -1615,7 +1615,7 @@ __metadata:
     unified: ^10.1.2
     vitest: ">=0.22.1 <1.0.0"
   bin:
-    changesets-changelog-entry: ./bin/cli.js
+    changesets-changelog-entry: ./bin/cli.mjs
   languageName: unknown
   linkType: soft
 
