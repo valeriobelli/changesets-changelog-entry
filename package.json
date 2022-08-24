@@ -1,6 +1,6 @@
 {
   "name": "changesets-changelog-entry",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Get an entry from a Changesets changelog",
   "bin": "./bin/cli.mjs",
   "main": "./lib/index.js",
