@@ -32,6 +32,7 @@ jobs:
       - name: Create Release Pull Request or Publish to npm
         uses: changesets/action@v1
         with:
+          commit: "build: version package\nrefs #0"
           publish: yarn run release
           version: yarn run version
         env:
